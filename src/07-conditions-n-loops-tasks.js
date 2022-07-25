@@ -282,8 +282,29 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  const aS = (`${ccn}`).split('');
+  const rev = aS.reverse();
+  const arr1 = [];
+  const arr2 = [];
+  rev.map((el, i) => {
+    if (i % 2) {
+      arr1.push(el);
+    } else {
+      arr2.push(el);
+    }
+    return el;
+  });
+  const arr1M = arr1.map((el) => el * 2).join('');
+  const arr1A = arr1M.split('').map((el) => Number(el)).reduce((a, v) => a + v);
+  const arr2M = arr2.map((el) => Number(el)).reduce((a, v) => a + v);
+  const ress = [];
+  ress.push(Number(arr1A), Number(arr2M));
+  const sums = ress.reduce((a, v) => a + v);
+  const resSl = (`${sums}`).split('');
+  const resA = resSl.splice(-1);
+  const arFilt = resA.some((el) => Number(el) === 0);
+  return arFilt;
 }
 
 /**
@@ -449,29 +470,8 @@ function getMatrixProduct(/* m1, m2 */) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(position) {
-  const position2 = position.reduce((acc, val) => acc.concat(val));
-  for (let i = 0; i < position2.length; i += 1) {
-    if (position2.length < 8) position2.splice(2, 0, 'undefined');
-  }
-  if (((position2[0] === 'X') && (position2[4] === 'X') && (position2[8] === 'X'))
-  || ((position2[1] === 'X') && (position2[4] === 'X') && (position2[7] === 'X'))
-  || ((position2[2] === 'X') && (position2[4] === 'X') && (position2[6] === 'X'))
-  || ((position2[0] === 'X') && (position2[1] === 'X') && (position2[2] === 'X'))
-  || ((position2[3] === 'X') && (position2[4] === 'X') && (position2[5] === 'X'))
-  || ((position2[6] === 'X') && (position2[7] === 'X') && (position2[8] === 'X'))
-  || ((position2[0] === 'X') && (position2[3] === 'X') && (position2[6] === 'X'))
-  || ((position2[1] === 'X') && (position2[4] === 'X') && (position2[7] === 'X'))
-  || ((position2[2] === 'X') && (position2[5] === 'X') && (position2[8] === 'X'))) { return 'X'; } if
-  (((position2[0] === '0') && (position2[4] === '0') && (position2[8] === '0'))
-  || ((position2[1] === '0') && (position2[4] === '0') && (position2[7] === '0'))
-  || ((position2[2] === '0') && (position2[4] === '0') && (position2[6] === '0'))
-  || ((position2[0] === '0') && (position2[1] === '0') && (position2[2] === '0'))
-  || ((position2[3] === '0') && (position2[4] === '0') && (position2[5] === '0'))
-  || ((position2[6] === '0') && (position2[7] === '0') && (position2[8] === '0'))
-  || ((position2[0] === '0') && (position2[3] === '0') && (position2[6] === '0'))
-  || ((position2[1] === '0') && (position2[4] === '0') && (position2[7] === '0'))
-  || ((position2[2] === '0') && (position2[5] === '0') && (position2[8] === '0'))) { return '0'; } return undefined;
+function evaluateTicTacToePosition(/* position */) {
+  throw new Error('Not implemented');
 }
 
 
